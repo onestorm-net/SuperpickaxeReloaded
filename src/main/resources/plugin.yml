@@ -1,0 +1,9 @@
+name: ${project.artifactId}
+main: ${project.groupId}.${project.artifactId}
+version: ${project.version}
+api-version: 1.13
+softdepend: [NoCheatPlus]
+commands:
+  spa:
+    description: Superpickaxe, break blocks instantly!
+    usage: /spa

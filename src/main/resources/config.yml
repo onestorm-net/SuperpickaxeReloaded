@@ -1,0 +1,15 @@
+# Materials that a player can't break, unless provided with the override permission for the specific material:
+# Here is a list of all materials https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+blacklisted:
+  - 'OBSIDIAN'
+  - 'BEDROCK'
+
+# Tools that can be used as a superpickaxe:
+tools:
+  - 'DIAMOND_PICKAXE'
+
+# If the WorldEdit superpickaxe commands should be overrided by this plugin (true for yes, false for no):
+overrideWorldEdit: false
+
+# Should we check if a user with SPA enabled still has the permission to use spa after a world change:
+monitorWorldChanges: true
