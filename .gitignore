@@ -1,17 +1,36 @@
-*.class
-.settings
-.classpath
-bin
-/dependency-reduced-pom.xml
-# Package Files #
-*.jar
-*.war
-*.ear
-**/target
-/lib
+# Eclipse stuff
 /.classpath
 /.project
-**/*.iml
-**/*~
-.idea
-**/*.mo
+/.settings
+
+# netbeans
+/nbproject
+
+# we use maven!
+/build.xml
+
+# maven
+/target
+
+# vim
+.*.sw[a-p]
+
+# various other potential build files
+/build
+/bin
+/dist
+/manifest.mf
+
+# Mac filesystem dust
+/.DS_Store
+
+# intellij
+*.iml
+*.ipr
+*.iws
+.idea/
+
+*.DS_Store
+
+dependency-reduced-pom.xml
+deploy_rsa
