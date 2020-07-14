@@ -42,8 +42,8 @@ public class SpaManager {
         spaEnabled.add(player.getUniqueId());
 
         if (sendMessage) {
-            player.sendMessage(ChatColor.BLACK + "[" + ChatColor.RED + "SuperPickaxe" + ChatColor.BLACK + "]" +
-                    ChatColor.RED + " Enabled!");
+            player.sendMessage(ChatColor.GOLD + "Superpickaxe " + ChatColor.RED + "enabled" + ChatColor.GOLD +
+                " for " + player.getDisplayName());
         }
 
         if (plugin.getServer().getPluginManager().isPluginEnabled("NoCheatPlus")) {
@@ -62,8 +62,8 @@ public class SpaManager {
         spaEnabled.remove(player.getUniqueId());
 
         if (sendMessage) {
-            player.sendMessage(ChatColor.BLACK + "[" + ChatColor.RED + "SuperPickaxe" + ChatColor.BLACK + "]" +
-                    ChatColor.RED + " Disabled!");
+            player.sendMessage(ChatColor.GOLD + "Superpickaxe " + ChatColor.RED + "disabled" + ChatColor.GOLD +
+                " for " + player.getDisplayName());
         }
 
         if (plugin.getServer().getPluginManager().isPluginEnabled("NoCheatPlus")) {

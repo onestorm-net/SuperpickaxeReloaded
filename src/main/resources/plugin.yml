@@ -1,5 +1,5 @@
-name: ${project.artifactId}
-main: ${project.groupId}.${project.artifactId}
+name: SuperpickaxeReloaded
+main: eu.internetpolice.spa.SuperpickaxeReloaded
 version: ${project.version}
 api-version: "1.13"
 softdepend: [NoCheatPlus]

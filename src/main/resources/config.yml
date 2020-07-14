@@ -4,8 +4,13 @@ blacklisted:
   - 'OBSIDIAN'
   - 'BEDROCK'
 
-# Tools that can be used as a superpickaxe:
+# Tools that can be used as a superpickaxe. Only diamond and netherite are enabled by default. Uncomment or add
+# tools to the list based on your own needs. If using < MC1.16, comment or remove NETHERITE:
 tools:
+#  - 'IRON_PICKAXE'
+#  - 'GOLDEN_PICKAXE'
+#  - 'STONE_PICKAXE'
+#  - 'WOODEN_PICKAXE'
   - 'DIAMOND_PICKAXE'
   - 'NETHERITE_PICKAXE'
 
