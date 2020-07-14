@@ -1,7 +1,7 @@
-package me.bubba1234119.SuperpickaxeReloaded.listener;
+package eu.internetpolice.spa.listener;
 
-import me.bubba1234119.SuperpickaxeReloaded.SuperpickaxeReloaded;
-import me.bubba1234119.SuperpickaxeReloaded.manager.SpaManager;
+import eu.internetpolice.spa.SuperpickaxeReloaded;
+import eu.internetpolice.spa.manager.SpaManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -16,12 +16,11 @@ public class PlayerChangedWorldListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
-    @SuppressWarnings("unused")
-    public void onPlayerChangedWorld(final PlayerChangedWorldEvent event) {
-        final Player player = event.getPlayer();
-        final SpaManager spaManager = instance.getSpaManager();
+    public void onPlayerChangedWorld(PlayerChangedWorldEvent event) {
+        Player player = event.getPlayer();
+        SpaManager spaManager = instance.getSpaManager();
 
-        if (spaManager.isSpaEnabled(player) && !SpaManager.hasSpaUsePermission(player)) {
+        if (spaManager.isSpaEnabled(player) && spaManager.hasSpaUsePermission(player)) {
             spaManager.disableSpa(player, false);
         }
     }

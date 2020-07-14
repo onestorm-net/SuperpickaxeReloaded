@@ -1,6 +1,6 @@
-package me.bubba1234119.SuperpickaxeReloaded.config;
+package eu.internetpolice.spa.config;
 
-import me.bubba1234119.SuperpickaxeReloaded.SuperpickaxeReloaded;
+import eu.internetpolice.spa.SuperpickaxeReloaded;
 import org.bukkit.Material;
 
 import java.util.HashSet;
@@ -13,43 +13,41 @@ public class Config {
     private final boolean monitorWorldChanges;
     private final boolean overrideWorldEdit;
 
-    public Config() {
-        SuperpickaxeReloaded instance = SuperpickaxeReloaded.getInstance();
-
-        instance.saveDefaultConfig();
-        instance.reloadConfig();
+    public Config(SuperpickaxeReloaded plugin) {
+        plugin.saveDefaultConfig();
+        plugin.reloadConfig();
 
         // Load blacklisted blocks:
-        for (String materialName : instance.getConfig().getStringList("blacklisted")) {
+        for (String materialName : plugin.getConfig().getStringList("blacklisted")) {
             if (Material.matchMaterial(materialName) == null) {
-                instance.getLogger().warning("Ignoring invalid material in blacklist: " + materialName);
+                plugin.getLogger().warning("Ignoring invalid material in blacklist: " + materialName);
             } else {
                 blacklistedBlocks.add(Material.matchMaterial(materialName));
             }
         }
 
         // Load allowed spa tools:
-        for (String toolName : instance.getConfig().getStringList("tools")) {
+        for (String toolName : plugin.getConfig().getStringList("tools")) {
             if (Material.matchMaterial(toolName) == null) {
-                instance.getLogger().warning("Ignoring invalid material in allowed tools: " + toolName);
+                plugin.getLogger().warning("Ignoring invalid material in allowed tools: " + toolName);
             } else {
                 spaTools.add(Material.matchMaterial(toolName));
             }
         }
 
         // Monitor world changes:
-        if (!instance.getConfig().isSet("monitorWorldChanges")) {
-            instance.getConfig().set("monitorWorldChanges", true);
+        if (!plugin.getConfig().isSet("monitorWorldChanges")) {
+            plugin.getConfig().set("monitorWorldChanges", true);
         }
-        monitorWorldChanges = instance.getConfig().getBoolean("monitorWorldChanges", true);
+        monitorWorldChanges = plugin.getConfig().getBoolean("monitorWorldChanges", true);
 
         // Override WorldEdit commands:
-        if (!instance.getConfig().isSet("overrideWorldEdit")) {
-            instance.getConfig().set("overrideWorldEdit", false);
+        if (!plugin.getConfig().isSet("overrideWorldEdit")) {
+            plugin.getConfig().set("overrideWorldEdit", false);
         }
-        overrideWorldEdit = instance.getConfig().getBoolean("overrideWorldEdit", false);
+        overrideWorldEdit = plugin.getConfig().getBoolean("overrideWorldEdit", false);
 
-        instance.saveConfig();
+        plugin.saveConfig();
     }
 
     /**

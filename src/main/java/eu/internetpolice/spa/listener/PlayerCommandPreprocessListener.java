@@ -1,6 +1,6 @@
-package me.bubba1234119.SuperpickaxeReloaded.listener;
+package eu.internetpolice.spa.listener;
 
-import me.bubba1234119.SuperpickaxeReloaded.SuperpickaxeReloaded;
+import eu.internetpolice.spa.SuperpickaxeReloaded;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
@@ -13,9 +13,8 @@ public class PlayerCommandPreprocessListener implements Listener {
     }
 
     @EventHandler(ignoreCancelled = true)
-    @SuppressWarnings("unused")
-    private void playerCommandPreprocessEvent(final PlayerCommandPreprocessEvent event) {
-        final String lowerCase = event.getMessage().toLowerCase();
+    private void playerCommandPreprocessEvent(PlayerCommandPreprocessEvent event) {
+        String lowerCase = event.getMessage().toLowerCase();
         if (lowerCase.equals("//") || lowerCase.equals("/,") || lowerCase.equals("/sp")) {
             event.setCancelled(true);
             instance.getServer().dispatchCommand(event.getPlayer(), "spa");

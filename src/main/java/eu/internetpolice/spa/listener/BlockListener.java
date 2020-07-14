@@ -1,7 +1,6 @@
-package me.bubba1234119.SuperpickaxeReloaded.listener;
+package eu.internetpolice.spa.listener;
 
-import me.bubba1234119.SuperpickaxeReloaded.SuperpickaxeReloaded;
-import me.bubba1234119.SuperpickaxeReloaded.manager.SpaManager;
+import eu.internetpolice.spa.SuperpickaxeReloaded;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockDamageEvent;
@@ -20,7 +19,7 @@ public class BlockListener implements Listener {
         if (!instance.getRunningConfig().isSpaTool(event.getItemInHand().getType())) return;
 
         if (!instance.getRunningConfig().isBlacklisted(event.getBlock().getType())
-                || SpaManager.hasSpaMaterialPermission(event.getPlayer(), event.getBlock().getType())) {
+                || instance.getSpaManager().hasSpaMaterialPermission(event.getPlayer(), event.getBlock().getType())) {
             event.setInstaBreak(true);
         }
     }

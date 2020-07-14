@@ -7,6 +7,7 @@ blacklisted:
 # Tools that can be used as a superpickaxe:
 tools:
   - 'DIAMOND_PICKAXE'
+  - 'NETHERITE_PICKAXE'
 
 # If the WorldEdit superpickaxe commands should be overrided by this plugin (true for yes, false for no):
 overrideWorldEdit: false

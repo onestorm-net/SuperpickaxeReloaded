@@ -1,7 +1,6 @@
-package me.bubba1234119.SuperpickaxeReloaded.manager;
+package eu.internetpolice.spa.manager;
 
-import me.bubba1234119.SuperpickaxeReloaded.SuperpickaxeReloaded;
-import org.bukkit.Bukkit;
+import eu.internetpolice.spa.SuperpickaxeReloaded;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -10,9 +9,13 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-@SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class SpaManager {
+    private final SuperpickaxeReloaded plugin;
     private final Set<UUID> spaEnabled = new HashSet<>();
+
+    public SpaManager(SuperpickaxeReloaded plugin) {
+        this.plugin = plugin;
+    }
 
     /**
      * Destructor method, called on plugin disable.
@@ -43,8 +46,8 @@ public class SpaManager {
                     ChatColor.RED + " Enabled!");
         }
 
-        if (Bukkit.getPluginManager().isPluginEnabled("NoCheatPlus")) {
-            SuperpickaxeReloaded.getInstance().getNoCheatManager().exPlayer(player);
+        if (plugin.getServer().getPluginManager().isPluginEnabled("NoCheatPlus")) {
+            plugin.getNoCheatManager().exPlayer(player);
         }
     }
 
@@ -63,8 +66,8 @@ public class SpaManager {
                     ChatColor.RED + " Disabled!");
         }
 
-        if (Bukkit.getPluginManager().isPluginEnabled("NoCheatPlus")) {
-            SuperpickaxeReloaded.getInstance().getNoCheatManager().unExPlayer(player);
+        if (plugin.getServer().getPluginManager().isPluginEnabled("NoCheatPlus")) {
+            plugin.getNoCheatManager().unExPlayer(player);
         }
     }
 
@@ -75,7 +78,7 @@ public class SpaManager {
      * @param material Material to check
      * @return True if the player has the permission, false otherwise.
      */
-    public static boolean hasSpaMaterialPermission(Player player, Material material) {
+    public boolean hasSpaMaterialPermission(Player player, Material material) {
         return player.hasPermission("spa." + material.name());
     }
 
@@ -85,7 +88,7 @@ public class SpaManager {
      * @param player Player to check.
      * @return True if the player has the permission, false otherwise.
      */
-    public static boolean hasSpaUsePermission(Player player) {
+    public boolean hasSpaUsePermission(Player player) {
         return player.hasPermission("spa.use");
     }
 

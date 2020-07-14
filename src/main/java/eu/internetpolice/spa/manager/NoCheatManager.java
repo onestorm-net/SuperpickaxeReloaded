@@ -1,4 +1,4 @@
-package me.bubba1234119.SuperpickaxeReloaded.manager;
+package eu.internetpolice.spa.manager;
 
 import fr.neatmonster.nocheatplus.checks.CheckType;
 import fr.neatmonster.nocheatplus.hooks.NCPExemptionManager;
